@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import messageRoutes from './routes/messages.js';
+import feedbackRoutes from './routes/feedbacks.js';
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rutas
 app.use('/api/messages', messageRoutes);
+app.use('/api/feedbacks', feedbackRoutes);
 
 // Ruta de prueba
 app.get('/', (req, res) => {
