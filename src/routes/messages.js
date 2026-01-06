@@ -8,16 +8,16 @@ import {
 
 const router = express.Router();
 
-// POST /api/messages - Crear mensaje
+// POST /api/messages 
 router.post('/', createMessage);
 
-// GET /api/messages - Obtener todos los mensajes
+// GET /api/messages 
 router.get('/', getAllMessages);
 
-// PUT /api/messages/:id/read - Marcar como leído
+// PUT /api/messages/:id/read 
 router.put('/:id/read', markMessageAsRead);
 
-// DELETE /api/messages/:id - Eliminar mensaje
+// DELETE /api/messages/:id 
 router.delete('/:id', deleteMessage);
 
 export default router;
