@@ -14,9 +14,9 @@ class Feedback {
 
         try {
             await pool.query(query);
-            console.log('Tabla "feedbacks" verificada/creada');
+            // console.log('Feedback table verified/created');
         } catch (error) {
-            console.error('Error creando tabla feedbacks:', error.message);
+            console.error('Error creating feedback table:', error.message);
         }
     }
 

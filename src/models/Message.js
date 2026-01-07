@@ -17,9 +17,9 @@ class Message {
 
         try {
             await pool.query(query);
-            console.log('Tabla "messages" verificada/creada');
+            // console.log('Message table verified/created');
         } catch (error) {
-            console.error('Error creando tabla:', error.message);
+            console.error('Error creating table:', error.message);
         }
     }
 

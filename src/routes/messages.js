@@ -5,19 +5,14 @@ import {
     markMessageAsRead,
     deleteMessage
 } from '../controllers/messageController.js';
+import { messageLimiter } from '../middlewares/rateLimiter.js';
+import { validateMessage } from '../middlewares/validators/messageValidator.js';
 
 const router = express.Router();
 
-// POST /api/messages 
-router.post('/', createMessage);
-
-// GET /api/messages 
+router.post('/', messageLimiter, validateMessage, createMessage);
 router.get('/', getAllMessages);
-
-// PUT /api/messages/:id/read 
 router.put('/:id/read', markMessageAsRead);
-
-// DELETE /api/messages/:id 
 router.delete('/:id', deleteMessage);
 
 export default router;

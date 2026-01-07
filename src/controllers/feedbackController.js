@@ -1,18 +1,23 @@
+import { validationResult } from 'express-validator';
 import Feedback from '../models/Feedback.js';
 
 export const createFeedback = async (req, res) => {
     try {
-        const { name, message } = req.body;
-
-        if (!name || !message) {
-            return res.status(400).json({ error: 'Nombre y mensaje son requeridos' });
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({
+                error: 'Validation Error',
+                details: errors.array()
+            });
         }
+
+        const { name, message } = req.body;
 
         const newFeedback = await Feedback.create({ name, message });
         res.status(201).json(newFeedback);
     } catch (error) {
-        console.error('Error creando feedback:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        console.error('Error creating feedback:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 };
 
