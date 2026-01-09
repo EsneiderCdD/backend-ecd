@@ -16,13 +16,7 @@ const startServer = async () => {
 
         // Iniciar servidor
         app.listen(PORT, () => {
-            console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
-            console.log(`📊 Endpoints disponibles:`);
-            console.log(`   POST   http://localhost:${PORT}/api/messages`);
-            console.log(`   POST   http://localhost:${PORT}/api/feedbacks`);
-            console.log(`   GET    http://localhost:${PORT}/api/messages`);
-            console.log(`   PUT    http://localhost:${PORT}/api/messages/:id/read`);
-            console.log(`   DELETE http://localhost:${PORT}/api/messages/:id`);
+            console.log(`🚀 Server running on port ${PORT}`);
         });
     } catch (error) {
         console.error('❌ Error iniciando servidor:', error);
